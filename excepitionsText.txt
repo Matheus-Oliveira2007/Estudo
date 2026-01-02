@@ -1,0 +1,3 @@
+Withdrawerror:
+	The amount exceeds withdraw limit - O valor excede o limite de saque
+	Not enough balance - Saldo insuficiente
