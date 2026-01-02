@@ -1,5 +1,11 @@
 package model.entities;
 
+import java.time.temporal.TemporalAmount;
+
+import javax.swing.DefaultRowSorter;
+
+import model.AccontExcepition.BusinessException;
+
 public class Accont {
 
 	private Integer number;
@@ -45,12 +51,18 @@ public class Accont {
 		this.balance += amount;
 	}
 	
-	public void withdraw(Double amount) {
-		
+	public void withdraw(Double amount) throws BusinessException {
+		valueExcepition(amount);
+		this.balance -= amount;
 	}
 	
-	private void valueExcepition() {
-
+	private void valueExcepition(Double amount) throws BusinessException {
+		if (amount > this.getWithdrawLimit()) {
+			throw new BusinessException("The amount exceeds withdraw limit");
+		}
+		if (amount > this.getBalance()) {
+			throw new BusinessException("Not enough balance");
+		}
 	}
 	
 	
