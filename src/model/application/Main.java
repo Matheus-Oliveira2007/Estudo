@@ -41,9 +41,5 @@ public class Main {
 			sc.close();
 		}
 	}
-	
-	public void metodo1() {
-		
-	}
 
 }
